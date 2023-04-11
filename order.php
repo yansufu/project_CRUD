@@ -53,13 +53,13 @@ include_once("config.php");
                         $sql2   = "select a.tran_id, b.name as pay_met, c.name, d.prod_name, e.nominal, e.price, a.order_date from transaction a join payment_method b on a.paymet_id=b.id join user c on a.cust_id=c.user_id join product d on a.prod_id=d.prod_id join nominal e on a.nom_id=e.nom_id order by order_date";
                         $q2     = mysqli_query($conn, $sql2);
                         while ($order = mysqli_fetch_array($q2)) {
-                            $tran_id         = $order['tran_id'];
+                            $tran_id      = $order['tran_id'];
                             $paymet       = $order['pay_met'];
-                            $custname       = $order['name'];
-                            $prod_name       = $order['prod_name'];
-                            $nominal       = $order['nominal'];
-                            $price       = $order['price'];
-                            $datetime       = $order['order_date'];
+                            $custname     = $order['name'];
+                            $prod_name    = $order['prod_name'];
+                            $nominal      = $order['nominal'];
+                            $price        = $order['price'];
+                            $datetime     = $order['order_date'];
 
 
                             

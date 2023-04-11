@@ -81,8 +81,13 @@ if (isset($_GET['prod_id'])){
            echo "<td>".$nominal['store_id']."</td>";
            echo "<td>".$nominal['price']."</td>";
            echo "<td>".$nominal['quantity']."</td>";
-           echo '<td scope="row"><a href="editnom.php?op=edit&nom_id=<?php echo $nom_id ?>"><button type="button" class="btn btn-warning">Edit</button></a> <a href="deletenom.php?op=delete&nom_id=<?php echo $nom_id?>" ><button type="button" class="btn btn-danger">Delete</button></a></td>';
+?>
 
+          <td scope="row">
+              <a href="editnom.php?op=edit&nom_id=<?php echo $nom_id ?>"><button type="button" class="btn btn-warning">Edit</button></a> 
+              <a href="deletenom.php?op=delete&nom_id=<?php echo $nom_id?>" onclick="return confirm('Continue to delete?')"><button type="button" class="btn btn-danger">Delete</button></a>
+          </td>
+<?php
                                 
            } }else{
                echo "No product found";

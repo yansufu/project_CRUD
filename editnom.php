@@ -30,14 +30,14 @@
 
     <a href="index.php">Go Home</a>
     <table>
-        <form class="form-group" action="edit.php" method="post">
-        <tr><td><label>product ID : <label></td>
-        <td><input class="form-control w-75" type = "text" name = "ID"></td></tr>
-        <tr><td><label>category ID : <label></td>
-        <td><input class="form-control w-75" type = "text" name = "cat_id"></td></tr>
-        <tr><td><label>product name : <label></td>
-        <td><input class="form-control w-75" type = "text" name = "prod_name"></td></tr>
-        
+        <form class="form-group" action="editnom.php" method="post">
+        <tr><td><label>nominal : <label></td>
+        <td><input class="form-control w-75" type = "text" name = "nominal"></td></tr>
+        <tr><td><label>price : <label></td>
+        <td><input class="form-control w-75" type = "text" name = "price"></td></tr>
+        <tr><td><label>Quantity : <label></td>
+        <td><input class="form-control w-75" type = "text" name = "quantity"></td></tr>
+
         <tr><td><button class="btn btn-primary" type = "submit" name = "submit" value ="Edit">edit</button></td></tr>
         </form>
     </table>
@@ -45,20 +45,27 @@
 </html>
 
 <?php
+
 include_once("config.php");
-$ID = $_GET['prod_id'];
+
+
 if(isset($_POST["submit"])){
-    $prod_id = $_POST['ID'];
-    $cat_id = $_POST['cat_id'];
-    $prod_name = $_POST['prod_name'];
+    $nominal = $_POST['nominal'];
+    $price = $_POST['price'];
+    $quantity = $_POST['quantity'];
+    $id = $_GET['nom_id'];
 
     //update user data
-    $result = mysqli_query($conn, "UPDATE product SET cat_id='$cat_id', prod_name='$prod_name' WHERE prod_id=$prod_id");
+
 
     // Redirect to hompeage
     header("location: index.php");
 
 
 
+
+
+$result = mysqli_query($conn, "UPDATE product SET nominal='$nominal', price='$price', quantity=$quantity where nom_id = '$id'");
 }
+
 ?>
